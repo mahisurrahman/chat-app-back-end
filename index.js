@@ -5,17 +5,19 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const cookieParser = require('cookie-parser');
 const { default: mongoose } = require('mongoose');
 require('dotenv').config();
+const userRoutes = require('./Routes/UserRoutes');
 
 const app = express();
 const port = process.env.PORT || 7000;
 
-// //MiddleWares//
+//MiddleWares//
 // app.use(express.json());
 // app.use(cors({
 //     origin: 'http://localhost:5173/',
 //     methods: ["POST", "GET", "PUT", "PATCH", "UPDATE", "DELETE"],
 //     credentials: true,
 // }))
+app.use('user/', userRoutes);
 
 
 //Mongoose Connect With Mongo DB//
